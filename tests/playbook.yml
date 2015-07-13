@@ -1,0 +1,75 @@
+---
+
+- hosts: all
+  sudo: yes
+
+  roles:
+    - role: jacoelho.gpg
+      gpg_user: test
+      gpg_group: test
+      gpg_home: /home/test
+      gpg_private_key: |
+        -----BEGIN PGP PRIVATE KEY BLOCK-----
+        Version: GnuPG v1.4.5 (GNU/Linux)
+
+        lQHhBEs71qsRBAChJ9cAdA4zn46ANnjmd4EKHc3j7s0gsdh/FKHtVo6CkX81Pp0I
+        OMWpUPp9m7gfbsvRDPCaznT3/BXFKB9ICKNRh3gLL2jGyzazUrh+WosWy7VQLzlx
+        um2ve+iTnTv7kt3n7Jsm1cPj9pE6G9mfuLyZZONLjDtIPf382Lf1W6KzNwCgnoGL
+        vy5kGo8Wqx6aBBK+gffgx50D/i3nfA5YA+2UvkpVUSjBWmqhXAZMRfNpfDzDd/v+
+        xuo2L0VbKF/l8OaL51fP+OSgZPLYrss9Z7Qco2GIapdPD8wJsjK4HY6mt+8EwOG2
+        k9wRY+3uWtbuxJFBwA23s3L9S5WtGutP6AqCxspRVN/wRVtwT6olOzGYDEROY4Vn
+        pDsnA/4ytLCvwGS27N6GlbumKXTaUWIXWkOVUW8KevkpVc5a1uitUpBUX+Z8mBdc
+        3qvSnrNsutOgmqaFYGRwHRGkv9kniNCQDFAj3h40hWXZpGjvUXRsC6cw0TGXh0Nm
+        fvai8VhRVolLV2yhUiT7M5nYeKW27ysVUQq0DCFW4j5VjvMaEv4DAwJFo0ixdOak
+        iGBra3mmX610A7XfkGeRKkqkTozWGEoJoQXCjGxqMte6TUbJ9At+DvW4uirq59OA
+        kIEb/LQrSm9obiBEb2UgKFJQTSBEZXZlbG9wZXIpIDxqZG9lQGV4YW1wbGUuY29t
+        PohgBBMRAgAgBQJLO9arAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQ8I6y
+        7kVMv6uCnQCeLw4Xi1xEaqi5+1hNGPfpUbuvqmwAn33XfvOWsyXelF6mSLPcZCPq
+        m+27nQJjBEs71rMQCACIWoPREd46vuHIxJAwwFmrvyBWFnerS9FsDmHctkQmc/9J
+        YzKs2FjrAMgSfhKoGiJCJuVhRrKfBzWWY55z0wnlFHUGZrJUrqnNfKjO6zXlSfrQ
+        u8+g2kN1KPtoPQNzkpllNdhfkOz9/axa/+xr5SxqTjqx/D6hmiXw1OMuagGxQoqS
+        zEmbv5BUUScPFm9KzUsu/2NIUO01WZxYPwaCfYUxDojLpvoNvHloue6NcKDOsLfT
+        T7q0/A5MTcSt6Qr1paHa45cW2TLVe1jK8SmtGsMeU3pRTXj5HPN8TbCviLR6t9Uz
+        myFBBORf0i7+jethEc/A+ARgXeutDDN97NFI3DEzAAMFB/91fjswPYAX83twAIFk
+        zXXQYg3hKhlHP49D79U+SEpMtPSdXIPJ8CZAuc62KYUUBK/ERmmM986Mfai9OMVE
+        rV+O2cZmyg/HZ5BaDLm5nY47ZoezTInI3n83BMJF8ET30uW4NUZa0Su+KjrjE+jA
+        8i7RvHYjRrffxxyILd28GE5M/uVJKd8f+lq42QCiHx5zir0SqSVHOU2MMd028do7
+        niNTRcoHpqNsiCfIALdICCXGeQDK+XRhFCQcIU9wYObKfJJLv4TLPgRaCFZ7+1Zj
+        UMZaK34wivBc250t1rurA9eF59xTflCRA4P/fGKeXOj9vEQzQjz0mhXTfMuR87FP
+        UnAI/gMDAkWjSLF05qSIYFqaObOxESIozAW3jB87HcEWYJ/9BSTkHCy+iL0N9321
+        RXxvMkvLNgy9TvvA003Q6/qhnXwjULXdTgW0k8hadiQVWy59IuA+Tq2ISQQYEQIA
+        CQUCSzvWswIbDAAKCRDwjrLuRUy/q5kiAJwJWfDhc+U3cQddOrdcdoBrlVh1/ACf
+        YERkTP/fz8oJqTr2/CBfhLhsTi0=
+        =C/iH
+        -----END PGP PRIVATE KEY BLOCK-----
+      gpg_public_key: |
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+        Version: GnuPG v1.4.5 (GNU/Linux)
+
+        mQGiBEs71qsRBAChJ9cAdA4zn46ANnjmd4EKHc3j7s0gsdh/FKHtVo6CkX81Pp0I
+        OMWpUPp9m7gfbsvRDPCaznT3/BXFKB9ICKNRh3gLL2jGyzazUrh+WosWy7VQLzlx
+        um2ve+iTnTv7kt3n7Jsm1cPj9pE6G9mfuLyZZONLjDtIPf382Lf1W6KzNwCgnoGL
+        vy5kGo8Wqx6aBBK+gffgx50D/i3nfA5YA+2UvkpVUSjBWmqhXAZMRfNpfDzDd/v+
+        xuo2L0VbKF/l8OaL51fP+OSgZPLYrss9Z7Qco2GIapdPD8wJsjK4HY6mt+8EwOG2
+        k9wRY+3uWtbuxJFBwA23s3L9S5WtGutP6AqCxspRVN/wRVtwT6olOzGYDEROY4Vn
+        pDsnA/4ytLCvwGS27N6GlbumKXTaUWIXWkOVUW8KevkpVc5a1uitUpBUX+Z8mBdc
+        3qvSnrNsutOgmqaFYGRwHRGkv9kniNCQDFAj3h40hWXZpGjvUXRsC6cw0TGXh0Nm
+        fvai8VhRVolLV2yhUiT7M5nYeKW27ysVUQq0DCFW4j5VjvMaErQrSm9obiBEb2Ug
+        KFJQTSBEZXZlbG9wZXIpIDxqZG9lQGV4YW1wbGUuY29tPohgBBMRAgAgBQJLO9ar
+        AhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQ8I6y7kVMv6uCnQCeLw4Xi1xE
+        aqi5+1hNGPfpUbuvqmwAn33XfvOWsyXelF6mSLPcZCPqm+27uQINBEs71rMQCACI
+        WoPREd46vuHIxJAwwFmrvyBWFnerS9FsDmHctkQmc/9JYzKs2FjrAMgSfhKoGiJC
+        JuVhRrKfBzWWY55z0wnlFHUGZrJUrqnNfKjO6zXlSfrQu8+g2kN1KPtoPQNzkpll
+        NdhfkOz9/axa/+xr5SxqTjqx/D6hmiXw1OMuagGxQoqSzEmbv5BUUScPFm9KzUsu
+        /2NIUO01WZxYPwaCfYUxDojLpvoNvHloue6NcKDOsLfTT7q0/A5MTcSt6Qr1paHa
+        45cW2TLVe1jK8SmtGsMeU3pRTXj5HPN8TbCviLR6t9UzmyFBBORf0i7+jethEc/A
+        +ARgXeutDDN97NFI3DEzAAMFB/91fjswPYAX83twAIFkzXXQYg3hKhlHP49D79U+
+        SEpMtPSdXIPJ8CZAuc62KYUUBK/ERmmM986Mfai9OMVErV+O2cZmyg/HZ5BaDLm5
+        nY47ZoezTInI3n83BMJF8ET30uW4NUZa0Su+KjrjE+jA8i7RvHYjRrffxxyILd28
+        GE5M/uVJKd8f+lq42QCiHx5zir0SqSVHOU2MMd028do7niNTRcoHpqNsiCfIALdI
+        CCXGeQDK+XRhFCQcIU9wYObKfJJLv4TLPgRaCFZ7+1ZjUMZaK34wivBc250t1rur
+        A9eF59xTflCRA4P/fGKeXOj9vEQzQjz0mhXTfMuR87FPUnAIiEkEGBECAAkFAks7
+        1rMCGwwACgkQ8I6y7kVMv6uZIgCfbpZ8kaevKp55GIGoOWuVo/b/Zc8An1Q3TG8G
+        a9p0vD3QA6XzbZEnOJ0C
+        =Xmla
+        -----END PGP PUBLIC KEY BLOCK-----

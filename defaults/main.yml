@@ -1,5 +1,9 @@
 ---
 
+#gpg_user
+#gpg_group
+#gpg_home
+
 #gpg_private_key:
 
 #gpg_public_key:

@@ -1,39 +1,7 @@
 ---
 
-- name: create gnupg directory
-  file:
-    path:  "~/.gnupg"
-    group: "{{ gpg_group }}"
-    owner: "{{ gpg_user }}"
-    mode:  0700
-    state: directory
+- include: validate.yml
 
-- name: copy gpg keys
-    content: "{{ item.content }}"
-    dest: "~/.gnupg/{{ item.name }}"
-    group: "{{ gpg_group }}"
-    owner: "{{ gpg_user }}"
-    mode:  0600
-  become: yes
-  become_user: "{{ gpg_user }}"
-  with_items:
-    - { name: pub.key, content: "{{ gpg_private_key }}" }
-    - { name: priv.key, content: "{{ gpg_public_key }}" }
+- include: prepare.yml
 
-- name: import public key
-  command: gpg --import ~/.gnupg/pub.key
-  become: yes
-  become_user: "{{ gpg_user }}"
-
-- name: import private key
-  command: gpg --allow-secret-key-import ~/.gnupg/priv.key
-  become: yes
-  become_user: "{{ gpg_user }}"
-
-- name: delete temporary files
-  command: shred -u "{{ item }}"
-  become: yes
-  become_user: "{{ gpg_user }}"
-  with_items:
-    - ~/.gnupg/pub.key
-    - ~/.gnupg/priv.key
+- include: import.yml

@@ -1,0 +1,40 @@
+---
+
+- name: prepare - check if path exists
+  stat:
+    path: "{{ gpg_home | dirname }}"
+  register: gpg_home_check
+
+- name: prepare - create path if necessary
+  file:
+    dest: "{{ gpg_home | dirname }}"
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  become: yes
+  when: not gpg_home_check.stat.exists
+
+- name: prepare - create app user group
+  group:
+    name: "{{ gpg_group }}"
+    system: yes
+    state: present
+
+- name: prepare - create app user
+  user:
+   name: "{{ gpg_user }}"
+   home: "{{ gpg_home }}"
+   createhome: yes
+   group: "{{ gpg_group }}"
+   shell: /bin/bash
+   system: yes
+   state: present
+
+- name: create gnupg directory
+  file:
+    path:  "{{ gpg_home }}/.gnupg"
+    group: "{{ gpg_group }}"
+    owner: "{{ gpg_user }}"
+    mode:  0700
+    state: directory

@@ -1,0 +1,36 @@
+---
+
+- name: copy gpg keys
+  copy:
+    content: "{{ item.content }}"
+    dest: "{{ gpg_home }}/.gnupg/{{ item.name }}.key"
+    owner: "{{ gpg_user }}"
+    group: "{{ gpg_group }}"
+    mode:  0600
+  become: yes
+  become_user: "{{ gpg_user }}"
+  with_items:
+    - { name: pub, content: "{{ gpg_private_key }}" }
+    - { name: priv, content: "{{ gpg_public_key }}" }
+
+- name: import public key
+  command: "gpg --import {{ gpg_home }}/.gnupg/pub.key"
+  args:
+    creates: "{{ gpg_home }}/.gnupg/trustdb.gpg"
+  become: yes
+  become_user: "{{ gpg_user }}"
+
+- name: import private key
+  command: "gpg --allow-secret-key-import {{ gpg_home }}/.gnupg/priv.key"
+  args:
+    creates: "{{ gpg_home }}/.gnupg/secring.gpg"
+  become: yes
+  become_user: "{{ gpg_user }}"
+
+- name: delete temporary files
+  command: shred -u "{{ item }}"
+  become: yes
+  become_user: "{{ gpg_user }}"
+  with_items:
+    - "{{ gpg_home }}/.gnupg/pub.key"
+    - "{{ gpg_home }}/.gnupg/priv.key"

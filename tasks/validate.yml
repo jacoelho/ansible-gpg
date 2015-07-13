@@ -1,0 +1,12 @@
+---
+
+- name: check if variables are defined
+  assert:
+    that:
+      - "{{ item }} is defined and {{ item | length }} > 0"
+  with_items:
+    - gpg_user
+    - gpg_group
+    - gpg_home
+    - gpg_private_key
+    - gpg_public_key
