@@ -1,0 +1,40 @@
+---
+
+- name: prepare - check if path exists
+  stat:
+    path: "{{ ssh_home | dirname }}"
+  register: ssh_home_check
+
+- name: prepare - create path if necessary
+  file:
+    dest: "{{ ssh_home | dirname }}"
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  become: yes
+  when: not ssh_home_check.stat.exists
+
+- name: prepare - create app user group
+  group:
+    name: "{{ ssh_group }}"
+    system: yes
+    state: present
+
+- name: prepare - create app user
+  user:
+   name: "{{ ssh_user }}"
+   home: "{{ ssh_home }}"
+   createhome: yes
+   group: "{{ ssh_group }}"
+   shell: /bin/bash
+   system: yes
+   state: present
+
+- name: create ssh directory
+  file:
+    path:  "{{ ssh_home }}/.ssh"
+    group: "{{ ssh_group }}"
+    owner: "{{ ssh_user }}"
+    mode:  0700
+    state: directory

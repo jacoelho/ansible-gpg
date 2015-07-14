@@ -3,7 +3,11 @@
 #gpg_user
 #gpg_group
 #gpg_home
-
 #gpg_private_key:
-
 #gpg_public_key:
+
+#ssh_user
+#ssh_group
+#ssh_home
+#ssh_private_key:
+#ssh_public_key

@@ -73,3 +73,11 @@
         a9p0vD3QA6XzbZEnOJ0C
         =Xmla
         -----END PGP PUBLIC KEY BLOCK-----
+
+      ssh_user: test
+      ssh_group: test
+      ssh_home: /home/test
+      ssh_private_key: |
+        stuff
+      ssh_public_key: |
+        stuff

@@ -1,0 +1,15 @@
+---
+
+- name: copy ssh keys
+  copy:
+    content: "{{ item.content }}"
+    dest: "{{ ssh_home }}/.ssh/{{ item.name }}"
+    owner: "{{ ssh_user }}"
+    group: "{{ ssh_group }}"
+    mode:  0600
+  become: yes
+  become_user: "{{ ssh_user }}"
+  with_items:
+    - { name: "id_rsa",     content: "{{ ssh_private_key }}" }
+    - { name: "id_rsa.pub", content: "{{ ssh_public_key }}" }
+

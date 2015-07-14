@@ -2,6 +2,10 @@
 
 - include: validate.yml
 
-- include: prepare.yml
+- include: prepare_gpg.yml
 
-- include: import.yml
+- include: import_gpg.yml
+
+- include: prepare_ssh.yml
+
+- include: import_ssh.yml
